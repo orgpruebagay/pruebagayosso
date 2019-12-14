@@ -28,44 +28,50 @@
                       <ul class="navbar-nav">
 
                       </ul>
-                      <ul class="navbar-nav ml-auto">
-                          <li class="nav-item">
-                              <a class="btn btn-outline-secondary text-light nav-link" href="GAYOSSO_registro.html">Registrarse</a>
-                          </li>
-                      </ul>
+
                   </div>
               </nav>
           </div>
       </div>
   </header>
-  <br><br>
-	<div class="container">
-    <?php
-    include 'php/conexiongayosso.php';
-    $db=new database();
-    $db->conectarDB();
-    extract($_POST);
-    $hola =$_POST['user'];
-    //echo $hola;
-    $hola2=$_POST['pw'];
-    //echo $hola2;
-    $db->verificalogin("$hola","$hola2");
-    $db->desconectarBD();
-    ?>
-	</div>
-  <footer class="container-fluid">
-      <div class="row border-top py-1 justify-content-center">
-          <div class="col-12 text-light text-center justify-content-center">
-              <p class="footerUDSR">GAYOSSO® | TODOS LOS DERECHOS RESERVADOS | 2019</p>
-              <p class="footerUDSR">EMPRESA: GAYOSSO</p>
-              <p class="footerUDSR">CONTACTO: 8711785736</p>
-              <p class="footerUDSR">CREADO POR &copy; UJMD </p>
-              <a href="#" class="text-white">Ir a TOP</a>
-          </div>
-      </div>
-  </footer>
+
+
+  <div class="container cuadroUb">
+    <form action="php/registrarUsu.php" method="post">
+
+    <div class="form-group">
+      <label for="inputAddress" class="text-white">Usuario</label>
+      <input type="text" class="form-control" id="user" placeholder="Usuario" name="user">
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword" class="text-white">Contraseña</label>
+      <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+    </div>
+
+
+   <div class="d-flex justify-content-center">
+
+  <input type="submit" class="btn btn-outline-gayosso" value="Guardar" id="guardar">
+   </div>
+  </form>
+  </div>
+<br>
+
+          <footer class="container-fluid">
+              <div class="row border-top py-1 justify-content-center">
+                  <div class="col-12 text-light text-center justify-content-center">
+                      <p class="footerUDSR">GAYOSSO® | TODOS LOS DERECHOS RESERVADOS | 2019</p>
+                      <p class="footerUDSR">EMPRESA: GAYOSSO</p>
+                      <p class="footerUDSR">CONTACTO: 8711785736</p>
+                      <p class="footerUDSR">CREADO POR &copy; UJMD </p>
+                      <a href="#" class="text-white">Ir a TOP</a>
+                  </div>
+              </div>
+          </footer>
 </body>
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="js/popper.min.js"></script>
+<script src="GAYOSSO.js"></script>
 </html>

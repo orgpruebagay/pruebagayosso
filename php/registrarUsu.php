@@ -8,8 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Gayyosso</title>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/miestilo.css">
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/miestilo.css">
 </head>
 
 <body background="img/persons-731514_1280.jpg" style="background-size:cover">
@@ -18,7 +18,7 @@
           <div class="col header-nav mb-3">
               <nav class="navbar navbar-expand-md navbar-dark">
                   <a class="navbar-brand text-light" href="http://gayosso.uttics.com">
-                      <img src="img/LOGOTRANSPARENTE.png" class="logotamañoptimize">
+                      <img src="../img/LOGOTRANSPARENTE.png" class="logotamañoptimize">
                   </a>
                   <h2 class="centerr text-white">BIENVENIDO</h2>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
@@ -39,28 +39,51 @@
       </div>
   </header>
 
-	<?php
-	include 'php/conexiongayosso.php';
-		$conexion = new database();
-	$conexion->cerrarSesion();
-	 ?>
+
+    <div class="container">
+      <?php
+
+      include 'conexiongayosso.php';
+$db=new database();
+$db->conectarDB();
+
+extract($_POST);
+
+$user = $_POST['user'];
+//echo $user;
+$passw=$_POST['password'];
+//echo $pw;
+
+$hash = password_hash($passw, PASSWORD_DEFAULT);
+
+$cadena = "INSERT INTO USUARIOS (`id`, `user`, `password`) VALUES (NULL, '$user', '$hash');";
+$db->ejecutaSQL($cadena);
+$db->desconectarBD();
 
 
-	 <footer class="container-fluid">
-	 		<div class="row border-top py-1 justify-content-center">
-	 				<div class="col-12 text-light text-center justify-content-center">
-	 						<p class="footerUDSR">GAYOSSO® | TODOS LOS DERECHOS RESERVADOS | 2019</p>
-	 						<p class="footerUDSR">EMPRESA: GAYOSSO</p>
-	 						<p class="footerUDSR">CONTACTO: 8711785736</p>
-	 						<p class="footerUDSR">CREADO POR &copy; UJMD </p>
-	 						<a href="#" class="text-white">Ir a TOP</a>
-	 				</div>
-	 		</div>
-	 </footer>
-	 </body>
-	 </html>
+echo "<br><br><div class='alert alert-success' align='center'><h2>Usuario registrado con exito</h2></div>";
+header("refresh:3; ../index.php");
+
+       ?>
+    </div>
 
 
-	 <script src="js/jquery-3.4.1.min.js"></script>
-	 <script src="js/bootstrap.js"></script>
-	 <script src="js/popper.min.js"></script>
+
+<footer class="container-fluid">
+   <div class="row border-top py-1 justify-content-center">
+       <div class="col-12 text-light text-center justify-content-center">
+           <p class="footerUDSR">GAYOSSO® | TODOS LOS DERECHOS RESERVADOS | 2019</p>
+           <p class="footerUDSR">EMPRESA: GAYOSSO</p>
+           <p class="footerUDSR">CONTACTO: 8711785736</p>
+           <p class="footerUDSR">CREADO POR &copy; UJMD </p>
+           <a href="#" class="text-white">Ir a TOP</a>
+       </div>
+   </div>
+</footer>
+</body>
+</html>
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/popper.min.js"></script>

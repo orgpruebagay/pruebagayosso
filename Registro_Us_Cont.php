@@ -10,7 +10,7 @@ $insertar="INSERT INTO USUARIOS(user, password) values
 ('$USR','$PSWD' )";
 
 $res=mysqli_query($cnx, $insertar);
-if (is_null($res)) {
+if (!$res) {
     echo "Error de conexion";
 }
 else
@@ -25,3 +25,4 @@ else
 
 mysql_close($cnx);
 ?>
+

@@ -207,7 +207,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cloe">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -216,15 +216,25 @@
         <p class="d-flex justify-content-center"></p>
         <p class="d-flex justify-content-center">Descuento</p>
         <div class="d-flex justify-content-center">
-           <select>
-          <option>10%</option>
-          <option>20%</option>
-          <option>30%</option>
-          <option>40%</option>
-          <option>50%</option>
-          <option>60%</option>
-          <option>70%</option>
-        </select>
+          <?php
+  include 'php/conexiongayosso.php';
+  $conexion = new database();
+  $conexion->conectarDB();
+
+  $cadena = "SELECT PORCENTAJE FROM descuentos;";
+
+  $registros=$conexion->seleccionar($cadena);
+
+  echo "<select name='depa'>";
+
+  foreach ($registros as $value)
+
+  {
+  echo "<option value='".$value['ID_DESCUENTO']."'>".$value['PORCENTAJE']."</option>";
+  }
+  echo "</select>";
+  $conexion->desconectarBD();
+  ?>
         </div>
         <br>
         <p class="d-flex justify-content-center">Precio final</p>

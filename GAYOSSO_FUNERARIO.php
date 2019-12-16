@@ -34,7 +34,7 @@
                   Menú Gayosso
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="index_cli.html">Buscar Cliente</a>
+                  <a class="dropdown-item" href="index_cli.php">Buscar Cliente</a>
                   <a class="dropdown-item" href="cerrarsesion.php">Cerrar Sesión</a>
                   </div>
                   </div>
@@ -62,25 +62,15 @@
 
 
       <div class="card othercd mt">
-
           <img src="img/bc563f79f9acf38_636bbd388a8eb875a127bafb6620b81d.jpg" style="height: 210px" class="card-img-top">
-
           <div class="card-body">
-
           <h5 class="card-title">Tradicional</h5>
-
           <button type="button" class="btn" data-toggle="popover" data-trigger="focus" title="Tradicional" data-content="Servicio de velación que incluye aseo, maquilaje, embalsamamiento, sala de velación, café y cápilla ecuménica con translado al cementerio de su preferencia" style="background-color: #3c5337; color: white">Información</button>
-
-          <a href="#" class="btn" style="background-color: #3c5337; color: white; position: relative; right:-22%;"  data-toggle="modal" data-target="#exampleModal">Elegir</a>
-
+          <input type="submit" href="#" class="btn" style="background-color: #3c5337; color: white; position: relative; right:-22%;"  data-toggle="modal" data-target="#exampleModal" value="Elegir"></form>
           </div>
-
           <div class="card-footer d-flex justify-content-center">
-
           <p style="font-size: 20px; font-family: helvetica;">$37,700</p>
-
           </div>
-
       </div>
 
 
@@ -219,6 +209,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<form method="POST" action="index_cotización.php">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -227,30 +218,45 @@
         </button>
       </div>
       <div class="modal-body">
-        <p class="d-flex justify-content-center">Precio inicial</p>
+        <p class="d-flex justify-content-center">Confirmar Categoria</p>
+      <div class="d-flex justify-content-center">
+      <?php include 'php/conexiongayosso.php';
+        $conexion = new database();
+        $conexion->conectarDB();
+        $cadena = " SELECT ID_SF, CATEGORIA FROM SERVICIO_FUNERARIO;";
+        $registros=$conexion->seleccionar($cadena);
+        echo "<select name='SF' class='form-control col-5'>";
+        foreach ($registros as $value)
+        {
+        echo "<option value='".$value['ID_SF']."'>".$value['CATEGORIA']."</option>";
+        }
+        echo "</select>";
+         ?></div>
         <p class="d-flex justify-content-center"></p>
         <p class="d-flex justify-content-center">Descuento</p>
         <div class="d-flex justify-content-center">
-           <select>
-          <option>10%</option>
-          <option>20%</option>
-          <option>30%</option>
-          <option>40%</option>
-          <option>50%</option>
-          <option>60%</option>
-          <option>70%</option>
-        </select>
+          <?php
+  $cadena = "SELECT ID_DESCUENTO, PORCENTAJE FROM DESCUENTOS;";
+  $registros=$conexion->seleccionar($cadena);
+  echo "<select name='PD' class='form-control col-3'>";
+  foreach ($registros as $value)
+  {
+  echo "<option value='".$value['ID_DESCUENTO']."'>".$value['PORCENTAJE']."</option>";
+  }
+  echo "</select>";
+  $conexion->desconectarBD();
+  ?>
         </div>
         <br>
-        <p class="d-flex justify-content-center">Precio final</p>
         <p class="d-flex justify-content-center"></p>
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button type="button" class="btn btn-secondary"style="background-color: #3c5337; color: white" data-dismiss="modal">Close</button>
-        <a href="index_cotización.html"><img src="img/shopping-cart.png"></a>
+        <button type="button" class="btn btn-secondary"style="background-color: #3c5337; color: white" data-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-secondary"style="background-color: #3c5337; color: white" value="Confirmar">
       </div>
     </div>
   </div>
+</form>
 </div>
 
 
@@ -279,14 +285,8 @@
 
 
 
-<script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
 
-<script src="js/bootstrap.js" charset="utf-8"></script>
-
-<script type="text/javascript" src="js/popper.min.js"></script>
-
-     <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-
-     <script type="text/javascript" src="js/bootstrap.js"></script>
-
-    <script type="text/javascript" src="GAYOSSO.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="GAYOSSO.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>

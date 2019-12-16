@@ -28,7 +28,11 @@
                       <ul class="navbar-nav">
 
                       </ul>
-
+                      <ul class="navbar-nav ml-auto">
+                          <li class="nav-item">
+                              <a class="btn btn-outline-secondary text-light nav-link" href="index.php">Iniciar Sesión</a>
+                          </li>
+                      </ul>
                   </div>
               </nav>
           </div>
@@ -41,18 +45,18 @@
 
     <div class="form-group">
       <label for="inputAddress" class="text-white">Usuario</label>
-      <input type="text" class="form-control" id="user" placeholder="Usuario" name="user">
+      <input type="text" class="form-control" id="user" placeholder="Usuario" name="user" required>
     </div>
 
     <div class="form-group">
       <label for="inputPassword" class="text-white">Contraseña</label>
-      <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+      <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password" required>
     </div>
 
 
    <div class="d-flex justify-content-center">
 
-  <input type="submit" class="btn btn-outline-gayosso" value="Guardar" id="guardar">
+  <input type="submit" class="btn btn-outline-gayosso" value="Registrarse" id="guardar">
    </div>
   </form>
   </div>

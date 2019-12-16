@@ -13,6 +13,10 @@
 {
   margin-left: 270px;
 }
+.menny
+{
+  margin-left: 265px;
+}
 .btn-personalized
 {
   background-color: #3c5337;
@@ -129,7 +133,10 @@
   {
     width: 15rem;
   }
-
+  .menny
+  {
+    margin-left: 130px;
+  }
 
   .othercd
   {

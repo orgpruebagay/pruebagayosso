@@ -109,7 +109,7 @@
    <div class="alineagion">
     <div class="d-flex justify-content-between" style="width: 20%">
    <input type="button" class="btn" style="background-color: #3c5337; color: white" value="Imprimir" onclick="window.print()">
-<a href="GAYOSSO_FUNERARIO.html"><button class="btn ml-4" style="background-color: #3c5337; color: white">Cancelar</button></a>
+<a href="GAYOSSO_FUNERARIO.php"><button class="btn ml-4" style="background-color: #3c5337; color: white">Cancelar</button></a>
  </div>
   </div>
   <br>

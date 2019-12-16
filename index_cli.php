@@ -37,8 +37,8 @@
                   Menú Gayosso
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="index_cli.html">Buscar Cliente</a>
-                  <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                  <a class="dropdown-item" href="GAYOSSO_MAIN.php">Inicio</a>
+                  <a class="dropdown-item" href="cerrarsesion.php">Cerrar Sesión</a>
                   </div>
                   </div>
                       </li>
@@ -50,7 +50,7 @@
                   </ul>
                   <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <a class="btn btn-outline-secondary text-light nav-link" href="GAYOSSO_login.html">Buscar Cliente</a>
+                        <a class="btn btn-outline-secondary text-light nav-link" href="GAYOSSO_MAIN.php">Inicio</a>
                         <a class="btn btn-outline-secondary text-light nav-link" href="GAYOSSO_login.html">Cerrar Sesión</a>
                       </li>
                   </ul>
@@ -59,40 +59,72 @@
       </div>
   </header>
 
-  <div class="container">
-          <div class="col .col-lg-6 .col-md-6 .col-sm-6 .col-xs-6">
-                    <div class="alert alert-success d-flex justify-content-center mt-3"  role="alert">
-                    <h4 class="title">Cliente:</h4>
-                    <input class="input1" type="text" placeholder="Buscar cliente" id="nombre1">
-                    <a href="" class="btn search1" >Buscar</a>
-                    <a href="" class="btn search2">Nueva búsqueda</a>
+
+  <?php
+
+  include 'php/conexiongayosso.php';
+  $conexion = new database();
+  $conexion->conectarDB();
+
+  echo "<div class='container'>
+          <div class='col .col-lg-6 .col-md-6 .col-sm-6 .col-xs-6'>
+                    <form action='index_cli.php' method='post'>
+                    <div class='alert alert-success d-flex justify-content-center mt-3'  role='alert'>
+                    <h4 class='title'>Cliente:</h4>
+                    <input class='input1' type='text' name='busq' placeholder='Buscar cliente' id='nombre1' required>
+                    <input type='submit' class='btn search1' value='Buscar' >
+                    <a href='index_cli.php' type='button' class='btn search2'>Nueva busqueda</a>'
+
+
                     </div>
+                      </form>
                   </div>
-</div>
+
+  </div>";
 
 
-          <div class="Clientes">
-         <table class="table table-gayosso table-striped table-bordered" id="lista">
-        <thead>
+    if($_POST)
+    {
+      extract($_POST);
+      $name = $_POST['busq'];
+      //echo $newID;
+    $consulta = "SELECT NOMBRE,AP,AM,DIRECCION,TELEFONO FROM CLIENTE WHERE NOMBRE = '$name'";
+    $tabla = $conexion->seleccionar($consulta);
+    echo "
+           <table class='table table-gayosso table-striped table-bordered' id='lista'>
+                 <thead>
          <tr>
-          <th>Nombre</th>
-          <th>Ap</th>
-          <th>Am</th>
-          <th>Dirección</th>
-        <th>Teléfono</th>
-           </tr>
-          </thead>
-          <tbody>
-            <td>Ubaldo</td>
-            <td>De Santiago</td>
-            <td>Ramirez</td>
-            <td>Calzada Mariano Escobedo Nte #315</td>
-            <td>8711909867</td>
+         <th>NOMBRE</th><th>AP</th><th>AM</th><th>DIRECCION</th><th>TELEFONO</th>
+         </tr>
+         </thead>
+         <tbody>";
 
-          </tbody>
-         </table>
-          </div>
-        </div>
+
+     if($tabla == null)
+     {
+     echo "<center><h1>Sin resultados</center></h1>";
+     }
+
+     if ($tabla ==! null)
+     {
+       foreach ($tabla as $fila)
+           {
+
+             echo "<tr>";
+             echo "<td>" . $fila['NOMBRE'] . "</td>";
+             echo "<td>" . $fila['AP'] . "</td>";
+             echo "<td>" . $fila['AM'] . "</td>";
+             echo "<td>" . $fila['DIRECCION'] . "</td>";
+             echo "<td>" . $fila['TELEFONO'] . "</td>";
+             echo "</tr>";
+           }
+     }
+
+    echo "</tbody>
+          <table>";
+        }
+    $conexion->desconectarBD();
+    ?>
 
 
  <br><br>
@@ -112,9 +144,6 @@
 </html>
 
 
-<script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
-<script src="js/bootstrap.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="GAYOSSO.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/popper.min.js"></script>

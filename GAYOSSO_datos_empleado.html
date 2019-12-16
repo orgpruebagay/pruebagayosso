@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/miestilo.css">
+  <link rel="stylesheet" href="css/datos.css">
 </head>
 
 <body background="img/persons-731514_1280.jpg" style="background-size:cover">
@@ -21,14 +22,12 @@
                       <img src="img/LOGOTRANSPARENTE.png" class="logotamañoptimize">
                   </a>
                   <h2 class="centerr text-white">BIENVENIDO</h2>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
+                  
                   <div class="collapse navbar-collapse" id="navbar">
                       <ul class="navbar-nav">
 
                       </ul>
-                      
+
                   </div>
               </nav>
           </div>
@@ -36,27 +35,27 @@
   </header>
 
 
-  <div class="container cuadroUb">
+  <div class="container cuadrote">
     <form action="Registro.php" method="post">
 
     <div class="form-group">
       <label for="inputAddress" class="text-white">Usuario</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="Usuario">
+      <input type="text" class="form-control" id="inputAddress" placeholder="Usuario" required>
     </div>
 
     <div class="form-group">
       <label for="inputPassword" class="text-white">Nombre</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Nombre" name="NOMBRE">
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Nombre" name="NOMBRE" required>
     </div>
 
       <div class="form-group">
       <label for="inputPassword" class="text-white">Apellido Paterno</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apellido Paterno"  name="AP">
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apellido Paterno"  name="AP" required>
     </div>
 
      <div class="form-group">
       <label for="inputPassword" class="text-white">Apellido Materno</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apellido Materno"  name="AM">
+      <input type="text" class="form-control" id="inputAddress2" placeholder="Apellido Materno"  name="AM" required>
     </div>
 
 
@@ -66,7 +65,7 @@
    </div>
   </form>
   </div>
-<br>
+<br><br><br>
 
           <footer class="container-fluid">
               <div class="row border-top py-1 justify-content-center">

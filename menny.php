@@ -15,8 +15,18 @@
 </head>
 
 <body>
-<center>
 
+  <?php
+  include 'php/conexiongayosso.php';
+  $conexion = new database();
+  $conexion->conectarDB();
+  $gsent = "SELECT * FROM CLIENTE;";
+$gsent->execute();
+
+print("Obtener todas las filas restantes del conjunto de resultados:\n");
+$resultado = $gsent->fetchAll();
+print_r($resultado);
+?>
 <div style="background-color:#B6B4B4; width: 100%;">
   <div class="row">
     <div class="col .col-lg-3 .col-md-3 .col-sm-3 .col-xs-3">
@@ -31,6 +41,7 @@
     </div>
   </div>
 </div>
+
 
 
 <br>
@@ -78,7 +89,7 @@
   <div class="centrar">
     <div class="d-flex justify-content-between" style="width: 20%">
    <input type="button" class="btn ml-3" style="background-color: #3c5337; color: white" value="Imprimir" onclick="window.print()">
-<a href="index_co.html"><button class="btn  ml-3" style="background-color: #3c5337; color: white">Contratar</button></a>
+<a href="index_co.php"><button class="btn  ml-3" style="background-color: #3c5337; color: white">Contratar</button></a>
 <a href="GAYOSSO_FUNERARIO.html"><button class="btn  ml-3" style="background-color: #3c5337; color: white">Cancelar</button></a>
  </div>
   </div>

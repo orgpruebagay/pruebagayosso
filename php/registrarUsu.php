@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../css/miestilo.css">
 </head>
 
-<body background="img/persons-731514_1280.jpg" style="background-size:cover">
+<body background="../img/persons-731514_1280.jpg" style="background-size:cover">
   <header class="container-fluid">
       <div class="row">
           <div class="col header-nav mb-3">
@@ -62,7 +62,7 @@ $db->desconectarBD();
 
 
 echo "<br><br><div class='alert alert-success' align='center'><h2>Usuario registrado con exito</h2></div>";
-header("refresh:3; ../index.php");
+header("refresh:3; ../GAYOSSO_datos_empleado.html");
 
        ?>
     </div>

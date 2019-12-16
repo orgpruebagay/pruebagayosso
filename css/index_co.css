@@ -35,6 +35,13 @@ width: 45%;
 margin-top: 5%;
 margin-right: 55%;
 }
+
+.alineagion
+{
+  margin-right:  200px;
+  background-color: red;
+}
+
 @media (min-width: 100px) and (max-width: 768px)
 {
 .cuadrilatero1

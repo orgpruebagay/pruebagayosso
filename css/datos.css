@@ -1,0 +1,22 @@
+.cuadrote
+{
+  width: 40%;
+  height: 400px;
+  background-color:
+  #3c5337;
+  margin-top: 5%;
+  border-radius: 20px;
+}
+
+@media (min-width: 100px) and (max-width: 768px)
+{
+  .cuadrote
+  {
+    width: 80%;
+    height: 400px;
+    background-color:
+    #3c5337;
+    margin-top: 25%;
+    border-radius: 20px;
+  }
+}

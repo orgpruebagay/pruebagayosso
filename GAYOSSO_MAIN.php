@@ -30,7 +30,7 @@
                       <img src="img/LOGOTRANSPARENTE.png" class="logotamañoptimize">
                   </a>
                   <h2 class="centerr text-white">BIENVENIDO</h2>
-                  
+
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
                       <span class="navbar-toggler-icon"></span>
                   </button>
@@ -41,7 +41,7 @@
                   Menú Gayosso
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<a class="dropdown-item" href="index_cli.html">Buscar Cliente</a>
+<a class="dropdown-item" href="index_cli.php">Buscar Cliente</a>
                   <a class="dropdown-item" href="cerrarsesion.php">Cerrar Sesión</a>
                   </div>
                   </div>

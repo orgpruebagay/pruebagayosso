@@ -1,0 +1,40 @@
+.nombre
+{
+font-size: 20px;
+margin-left: -820px;
+}
+
+.apellidoP
+{
+font-size: 20px;
+margin-left: -420px;
+margin-top: -30px;
+}
+
+.apellidoM
+{
+font-size: 20px;
+margin-left: -190px;
+margin-top: -30px;
+}
+
+.direccion
+{
+  font-size: 20px;
+  margin-left: 140px;
+  margin-top: -30px;
+}
+
+.telefono
+{
+  font-size: 20px;
+  margin-left: 360px;
+  margin-top: -30px;
+}
+
+
+
+@media (min-width: 100px) and (max-width: 768px)
+{
+
+}

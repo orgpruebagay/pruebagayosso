@@ -21,16 +21,13 @@
                       <img src="img/LOGOTRANSPARENTE.png" class="logotamañoptimize">
                   </a>
                   <h2 class="centerr text-white">BIENVENIDO</h2>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
+
                   <div class="collapse navbar-collapse" id="navbar">
                       <ul class="navbar-nav">
 
                       </ul>
                       <ul class="navbar-nav ml-auto">
                           <li class="nav-item">
-                              <a class="btn btn-outline-secondary text-light nav-link" href="GAYOSSO_registro.html">Registrarse</a>
                           </li>
                       </ul>
                   </div>
